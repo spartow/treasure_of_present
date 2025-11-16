@@ -240,11 +240,12 @@ export default function Home() {
                     <p className="text-xs text-gray-500">۲۳ آبان ۱۴۰۴</p>
                   </div>
                   <a
-                    href="https://www.parvizshahbazi.com/ganj_videos/category.php?cat=Phone-Calls"
+                    href="https://www.parvizshahbazi.com/ganj_videos/category.php?cat=Phone-Call"
                     onClick={(e) => {
-                      // Force desktop version by modifying the URL
+                      // Try using singular Phone-Call instead of Phone-Calls
+                      // This might bypass the mobile redirect
                       e.preventDefault();
-                      const url = 'https://www.parvizshahbazi.com/ganj_videos/category.php?cat=Phone-Calls&desktop=1';
+                      const url = 'https://www.parvizshahbazi.com/ganj_videos/category.php?cat=Phone-Call';
                       window.open(url, '_blank', 'noopener,noreferrer');
                     }}
                     className="block w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white py-3 px-4 rounded-xl font-bold text-sm text-center shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300"
