@@ -225,7 +225,9 @@ async function main() {
   if (fs.existsSync(mappedFile)) {
     console.log('\n📖 Loading mapped video data...');
     mappedData = JSON.parse(fs.readFileSync(mappedFile, 'utf-8'));
-    console.log(`✓ Loaded ${mappedData.data.mapped.length} mapped entries`);
+    if (mappedData) {
+      console.log(`✓ Loaded ${mappedData.data.mapped.length} mapped entries`);
+    }
   }
 
   // Process transcripts into chunks

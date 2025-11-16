@@ -6,6 +6,7 @@ import ChatBot from "@/components/ChatBot";
 // Vazirmatn is a beautiful modern Persian font
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://parvizshahbazi.com'),
   title: {
     default: "گنج حضور - Ganj e Hozour | پرویز شهبازی",
     template: "%s | گنج حضور"
