@@ -66,8 +66,8 @@ export const URL_MAPPING = {
   },
 
   // Phone call programs
-  phoneCalls: 'https://www.parvizshahbazi.com/ganj_videos/category.php?cat=Phone-Call',
-  phoneCallsVideo: 'https://www.parvizshahbazi.com/ganj_videos/category.php?cat=Phone-Calls',
+  phoneCalls: 'https://www.parvizshahbazi.com/ganj_videos/category.php?cat=Phone-Call&mobile=0',
+  phoneCallsVideo: 'https://www.parvizshahbazi.com/ganj_videos/category.php?cat=Phone-Calls&mobile=0',
 
   // Music poems
   musicPoems: 'https://www.parvizshahbazi.com/ganj_videos/category.php?cat=Music_poems-Mollavi-Hafez&sortby=date',
