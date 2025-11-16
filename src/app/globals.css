@@ -2,25 +2,40 @@
 
 /* Force mobile navigation to hide desktop nav on small screens */
 @media (max-width: 767px) {
-  /* Hide desktop navigation completely on mobile */
-  nav .desktop-nav {
+  /* Hide desktop navigation completely on mobile - use very specific selector */
+  nav .desktop-nav,
+  nav > div > div > .desktop-nav,
+  .desktop-nav {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
     height: 0 !important;
+    width: 0 !important;
     overflow: hidden !important;
+    position: absolute !important;
+    left: -9999px !important;
   }
   
   /* Force mobile menu button to show */
-  nav .mobile-menu-btn {
+  nav .mobile-menu-btn,
+  nav > div > div > .mobile-menu-btn,
+  .mobile-menu-btn {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
+    position: relative !important;
   }
   
-  /* Hide any navigation links that might be showing */
-  nav a:not(.mobile-menu-btn *) {
+  /* Hide all navigation links inside desktop nav on mobile */
+  nav .desktop-nav a,
+  nav .desktop-nav Link {
     display: none !important;
+    visibility: hidden !important;
+  }
+  
+  /* Ensure container doesn't show desktop nav */
+  nav > div > div {
+    flex-wrap: nowrap !important;
   }
 }
 

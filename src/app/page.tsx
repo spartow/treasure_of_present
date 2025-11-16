@@ -84,7 +84,7 @@ export default function Home() {
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between relative">
             {/* Desktop Navigation - Hidden on mobile, show on md and up */}
-            <div className="desktop-nav hidden md:flex items-center gap-4 xl:gap-8 overflow-x-auto" dir="rtl" style={{ display: 'none' }}>
+            <div className="desktop-nav hidden md:flex items-center gap-4 xl:gap-8 overflow-x-auto" dir="rtl">
               <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm whitespace-nowrap flex-shrink-0">خانه</Link>
               <a href={URL_MAPPING.support} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap flex-shrink-0">حمایت</a>
               <a href={URL_MAPPING.links} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap flex-shrink-0">لینک‌ها</a>
@@ -103,7 +103,6 @@ export default function Home() {
               onClick={() => setShowMobileMenu(!showMobileMenu)}
               className="mobile-menu-btn flex md:hidden p-2 text-gray-600 hover:text-blue-600 z-10"
               aria-label="Menu"
-              style={{ display: 'flex' }}
             >
               {showMobileMenu ? <XIcon className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
