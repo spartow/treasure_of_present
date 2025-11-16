@@ -5,30 +5,38 @@
   /* Hide desktop navigation completely on mobile - use very specific selector */
   nav .desktop-nav,
   nav > div > div > .desktop-nav,
-  .desktop-nav {
+  .desktop-nav,
+  nav > div > div > div:first-child {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
     height: 0 !important;
     width: 0 !important;
+    max-width: 0 !important;
     overflow: hidden !important;
     position: absolute !important;
     left: -9999px !important;
+    pointer-events: none !important;
   }
   
   /* Force mobile menu button to show */
   nav .mobile-menu-btn,
   nav > div > div > .mobile-menu-btn,
-  .mobile-menu-btn {
+  .mobile-menu-btn,
+  nav > div > div > button {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
     position: relative !important;
+    z-index: 10 !important;
   }
   
   /* Hide all navigation links inside desktop nav on mobile */
   nav .desktop-nav a,
-  nav .desktop-nav Link {
+  nav .desktop-nav Link,
+  nav a[href*="support"],
+  nav a[href*="links"],
+  nav a[href*="contact"] {
     display: none !important;
     visibility: hidden !important;
   }
@@ -36,6 +44,16 @@
   /* Ensure container doesn't show desktop nav */
   nav > div > div {
     flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+  }
+  
+  /* Make navigation bar more compact on mobile */
+  nav {
+    padding: 0.5rem 0.5rem !important;
+  }
+  
+  nav > div {
+    padding: 0.25rem 0.5rem !important;
   }
 }
 

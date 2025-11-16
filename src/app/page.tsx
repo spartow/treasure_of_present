@@ -81,10 +81,10 @@ export default function Home() {
       <div className="relative z-10">
       {/* Top Navigation */}
       <nav className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border-b border-white/20 dark:border-gray-700/50 shadow-lg">
-        <div className="container mx-auto px-2 sm:px-4 py-2 sm:py-3">
-          <div className="flex items-center justify-between relative">
+        <div className="container mx-auto px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3">
+          <div className="flex items-center justify-between relative w-full">
             {/* Desktop Navigation - Hidden on mobile, show on md and up */}
-            <div className="desktop-nav hidden md:flex items-center gap-4 xl:gap-8 overflow-x-auto" dir="rtl">
+            <div className="desktop-nav hidden md:flex items-center gap-3 lg:gap-4 xl:gap-8 overflow-x-auto" dir="rtl">
               <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm whitespace-nowrap flex-shrink-0">خانه</Link>
               <a href={URL_MAPPING.support} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap flex-shrink-0">حمایت</a>
               <a href={URL_MAPPING.links} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap flex-shrink-0">لینک‌ها</a>
@@ -101,28 +101,28 @@ export default function Home() {
             {/* Mobile Menu Button - Show on mobile, hide on md and up */}
             <button
               onClick={() => setShowMobileMenu(!showMobileMenu)}
-              className="mobile-menu-btn flex md:hidden p-1.5 sm:p-2 text-gray-600 hover:text-blue-600 z-10"
+              className="mobile-menu-btn flex md:hidden p-1.5 sm:p-2 text-gray-600 hover:text-blue-600 z-10 flex-shrink-0"
               aria-label="Menu"
             >
               {showMobileMenu ? <XIcon className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
 
             {/* Action Buttons */}
-            <div className="flex items-center gap-1 sm:gap-2">
+            <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 flex-shrink-0">
               <a 
                 href={URL_MAPPING.liveTV}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-0.5 sm:gap-1 md:gap-2 bg-red-600 hover:bg-red-700 text-white px-1.5 sm:px-2 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full transition-colors shadow-lg text-[10px] sm:text-xs md:text-sm"
+                className="flex items-center gap-0.5 sm:gap-1 md:gap-2 bg-red-600 hover:bg-red-700 text-white px-1.5 sm:px-2 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full transition-colors shadow-lg text-[10px] sm:text-xs md:text-sm whitespace-nowrap"
               >
-                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full animate-pulse"></div>
+                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full animate-pulse flex-shrink-0"></div>
                 <span className="font-medium hidden sm:inline">Live TV</span>
               </a>
               <a 
                 href={URL_MAPPING.support}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:flex items-center gap-1 md:gap-2 bg-blue-600 hover:bg-blue-700 text-white px-2 md:px-4 py-1 md:py-2 rounded-full transition-colors text-xs md:text-sm"
+                className="hidden sm:flex items-center gap-1 md:gap-2 bg-blue-600 hover:bg-blue-700 text-white px-2 md:px-4 py-1 md:py-2 rounded-full transition-colors text-xs md:text-sm whitespace-nowrap"
               >
                 <span className="font-medium">حمایت</span>
               </a>
@@ -153,7 +153,7 @@ export default function Home() {
       {/* Search Bar */}
       <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl border-b border-white/20 dark:border-gray-700/50">
         <div className="container mx-auto px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 lg:py-4">
-          <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 lg:gap-3 max-w-4xl mx-auto">
+          <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 lg:gap-3 w-full max-w-4xl mx-auto">
             <div className="p-1 sm:p-1.5 md:p-2 lg:p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-md sm:rounded-lg md:rounded-xl shadow-lg flex-shrink-0">
               <Search className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-white" />
             </div>
@@ -162,7 +162,7 @@ export default function Home() {
               placeholder="جستجو..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 px-2 sm:px-3 md:px-4 lg:px-6 py-1.5 sm:py-2 md:py-3 lg:py-4 bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-600/50 sm:border-2 rounded-md sm:rounded-lg md:rounded-xl lg:rounded-2xl focus:outline-none focus:border-blue-500 focus:ring-1 sm:focus:ring-2 md:focus:ring-4 focus:ring-blue-500/20 text-gray-900 dark:text-white text-xs sm:text-sm md:text-base lg:text-lg font-medium transition-all duration-300"
+              className="flex-1 min-w-0 px-2 sm:px-3 md:px-4 lg:px-6 py-1.5 sm:py-2 md:py-3 lg:py-4 bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-600/50 sm:border-2 rounded-md sm:rounded-lg md:rounded-xl lg:rounded-2xl focus:outline-none focus:border-blue-500 focus:ring-1 sm:focus:ring-2 md:focus:ring-4 focus:ring-blue-500/20 text-gray-900 dark:text-white text-xs sm:text-sm md:text-base lg:text-lg font-medium transition-all duration-300"
               dir="rtl"
             />
             <button className="px-2 sm:px-3 md:px-4 lg:px-8 py-1.5 sm:py-2 md:py-3 lg:py-4 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold rounded-md sm:rounded-lg md:rounded-xl lg:rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-[10px] sm:text-xs md:text-sm lg:text-base whitespace-nowrap flex-shrink-0">
