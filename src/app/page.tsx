@@ -240,9 +240,13 @@ export default function Home() {
                     <p className="text-xs text-gray-500">۲۳ آبان ۱۴۰۴</p>
                   </div>
                   <a
-                    href={URL_MAPPING.phoneCallsVideo}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="https://www.parvizshahbazi.com/ganj_videos/category.php?cat=Phone-Calls"
+                    onClick={(e) => {
+                      // Force desktop version by modifying the URL
+                      e.preventDefault();
+                      const url = 'https://www.parvizshahbazi.com/ganj_videos/category.php?cat=Phone-Calls&desktop=1';
+                      window.open(url, '_blank', 'noopener,noreferrer');
+                    }}
                     className="block w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white py-3 px-4 rounded-xl font-bold text-sm text-center shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300"
                   >
                     مشاهده برنامه‌های تلفنی

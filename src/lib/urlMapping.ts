@@ -65,9 +65,9 @@ export const URL_MAPPING = {
     'چراغ عشق': 'https://www.parvizshahbazi.com/ganj_videos/cheragh_eshgh.php',
   },
 
-  // Phone call programs
-  phoneCalls: 'https://www.parvizshahbazi.com/ganj_videos/category.php?cat=Phone-Call&mobile=0',
-  phoneCallsVideo: 'https://www.parvizshahbazi.com/ganj_videos/category.php?cat=Phone-Calls&mobile=0',
+  // Phone call programs - using direct PHP file to avoid mobile redirect
+  phoneCalls: 'https://www.parvizshahbazi.com/ganj_videos/category.php?cat=Phone-Call&force_desktop=1',
+  phoneCallsVideo: 'https://www.parvizshahbazi.com/ganj_videos/category.php?cat=Phone-Calls&force_desktop=1&no_mobile=1',
 
   // Music poems
   musicPoems: 'https://www.parvizshahbazi.com/ganj_videos/category.php?cat=Music_poems-Mollavi-Hafez&sortby=date',
