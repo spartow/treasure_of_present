@@ -2,12 +2,25 @@
 
 /* Force mobile navigation to hide desktop nav on small screens */
 @media (max-width: 767px) {
+  /* Hide desktop navigation completely on mobile */
   nav .desktop-nav {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
   }
   
+  /* Force mobile menu button to show */
   nav .mobile-menu-btn {
     display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Hide any navigation links that might be showing */
+  nav a:not(.mobile-menu-btn *) {
+    display: none !important;
   }
 }
 
