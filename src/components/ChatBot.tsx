@@ -94,16 +94,16 @@ export default function ChatBot() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 p-4 bg-gradient-to-br from-purple-600 to-blue-600 text-white rounded-full shadow-elegant-lg hover-lift pulse-glow z-50"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 p-3 sm:p-4 bg-gradient-to-br from-purple-600 to-blue-600 text-white rounded-full shadow-elegant-lg hover-lift pulse-glow z-50"
           title="دستیار هوشمند"
         >
-          <MessageCircle className="w-6 h-6 animate-pulse" />
+          <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 animate-pulse" />
         </button>
       )}
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 w-96 h-[600px] glass-dark rounded-2xl shadow-elegant-lg flex flex-col z-50 backdrop-blur-xl fade-in-up">
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-[calc(100vw-2rem)] sm:w-96 h-[calc(100vh-8rem)] sm:h-[600px] max-h-[600px] glass-dark rounded-xl sm:rounded-2xl shadow-elegant-lg flex flex-col z-50 backdrop-blur-xl fade-in-up">
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-gray-200/10 dark:border-gray-700/10 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-t-2xl shadow-lg">
             <h3 className="font-semibold text-right flex-1">دستیار هوشمند گنج حضور</h3>

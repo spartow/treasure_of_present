@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Search, Phone, Mail, ExternalLink, ChevronRight, Loader2 } from 'lucide-react';
+import { Search, Phone, Mail, ExternalLink, ChevronRight, Loader2, Menu, X as XIcon } from 'lucide-react';
 import { Episode } from '../types/episode';
 import { getEpisodesInRange, getTotalEpisodes } from '@/lib/episodes';
 import EpisodeCard from '@/components/EpisodeCard';
@@ -73,77 +73,111 @@ export default function Home() {
         }}></div>
       </div>
       
-      {/* Floating Orbs */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-xl animate-pulse"></div>
-      <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-      <div className="absolute bottom-20 left-1/4 w-20 h-20 bg-gradient-to-br from-indigo-400/20 to-blue-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+      {/* Floating Orbs - Hidden on mobile */}
+      <div className="hidden md:block absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-xl animate-pulse"></div>
+      <div className="hidden md:block absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      <div className="hidden md:block absolute bottom-20 left-1/4 w-20 h-20 bg-gradient-to-br from-indigo-400/20 to-blue-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       
       <div className="relative z-10">
       {/* Top Navigation */}
       <nav className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border-b border-white/20 dark:border-gray-700/50 shadow-lg">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-8" dir="rtl">
-              <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm">خانه</Link>
-              <a href={URL_MAPPING.support} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm">حمایت از گنج حضور</a>
-              <a href={URL_MAPPING.links} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm">لینک‌ها</a>
-              <a href={URL_MAPPING.contact} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm">تماس با ما</a>
-              <a href={URL_MAPPING.payamManavi} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm">پیام‌های معنوی</a>
-              <a href={URL_MAPPING.peighamEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm">پیغام عشق</a>
-              <a href={URL_MAPPING.koodakanEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm">کودکان عشق</a>
-              <a href={URL_MAPPING.javaananEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm">جوانان عشق</a>
-              <a href={URL_MAPPING.cheraghEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm">چراغ عشق</a>
-              <a href={URL_MAPPING.summaries} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm">خلاصه برنامه‌ها</a>
-              <a href={URL_MAPPING.ganjinehEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm">گنجینه عشق</a>
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-4 xl:gap-8" dir="rtl">
+              <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm whitespace-nowrap">خانه</Link>
+              <a href={URL_MAPPING.support} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">حمایت</a>
+              <a href={URL_MAPPING.links} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">لینک‌ها</a>
+              <a href={URL_MAPPING.contact} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">تماس</a>
+              <a href={URL_MAPPING.payamManavi} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">پیام‌های معنوی</a>
+              <a href={URL_MAPPING.peighamEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">پیغام عشق</a>
+              <a href={URL_MAPPING.koodakanEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">کودکان عشق</a>
+              <a href={URL_MAPPING.javaananEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">جوانان عشق</a>
+              <a href={URL_MAPPING.cheraghEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">چراغ عشق</a>
+              <a href={URL_MAPPING.summaries} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">خلاصه</a>
+              <a href={URL_MAPPING.ganjinehEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">گنجینه عشق</a>
             </div>
-            <div className="flex items-center gap-3">
+            
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              className="lg:hidden p-2 text-gray-600 hover:text-blue-600"
+              aria-label="Menu"
+            >
+              {showMobileMenu ? <XIcon className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+
+            {/* Action Buttons */}
+            <div className="flex items-center gap-2">
               <a 
                 href={URL_MAPPING.liveTV}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full transition-colors shadow-lg"
+                className="flex items-center gap-1 sm:gap-2 bg-red-600 hover:bg-red-700 text-white px-2 sm:px-4 py-2 rounded-full transition-colors shadow-lg text-xs sm:text-sm"
               >
                 <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium">Live TV</span>
+                <span className="font-medium hidden sm:inline">Live TV</span>
               </a>
               <a 
                 href={URL_MAPPING.support}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition-colors"
+                className="hidden sm:flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition-colors text-sm"
               >
-                <span className="text-sm font-medium">حمایت از گنج حضور</span>
+                <span className="font-medium">حمایت</span>
               </a>
             </div>
           </div>
+
+          {/* Mobile Menu */}
+          {showMobileMenu && (
+            <div className="lg:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700 pt-4" dir="rtl">
+              <div className="grid grid-cols-2 gap-2">
+                <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm py-2 px-3 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-700">خانه</Link>
+                <a href={URL_MAPPING.support} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">حمایت از گنج حضور</a>
+                <a href={URL_MAPPING.links} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">لینک‌ها</a>
+                <a href={URL_MAPPING.contact} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">تماس با ما</a>
+                <a href={URL_MAPPING.payamManavi} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">پیام‌های معنوی</a>
+                <a href={URL_MAPPING.peighamEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">پیغام عشق</a>
+                <a href={URL_MAPPING.koodakanEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">کودکان عشق</a>
+                <a href={URL_MAPPING.javaananEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">جوانان عشق</a>
+                <a href={URL_MAPPING.cheraghEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">چراغ عشق</a>
+                <a href={URL_MAPPING.summaries} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">خلاصه برنامه‌ها</a>
+                <a href={URL_MAPPING.ganjinehEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">گنجینه عشق</a>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
       {/* Search Bar */}
       <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl border-b border-white/20 dark:border-gray-700/50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center gap-3 max-w-4xl mx-auto">
-            <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl shadow-lg">
-              <Search className="w-6 h-6 text-white" />
+        <div className="container mx-auto px-4 py-3 sm:py-4">
+          <div className="flex items-center gap-2 sm:gap-3 max-w-4xl mx-auto">
+            <div className="p-2 sm:p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl shadow-lg flex-shrink-0">
+              <Search className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
             </div>
             <input
               type="text"
               placeholder="جستجو در برنامه‌ها..."
-              className="flex-1 px-6 py-4 bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm border-2 border-gray-200/50 dark:border-gray-600/50 rounded-2xl focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 text-gray-900 dark:text-white text-lg font-medium transition-all duration-300"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="flex-1 px-3 sm:px-6 py-2 sm:py-4 bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm border-2 border-gray-200/50 dark:border-gray-600/50 rounded-xl sm:rounded-2xl focus:outline-none focus:border-blue-500 focus:ring-2 sm:focus:ring-4 focus:ring-blue-500/20 text-gray-900 dark:text-white text-sm sm:text-lg font-medium transition-all duration-300"
               dir="rtl"
             />
-            <button className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
-              Search
+            <button className="px-4 sm:px-8 py-2 sm:py-4 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-xs sm:text-base whitespace-nowrap">
+              <span className="hidden sm:inline">Search</span>
+              <span className="sm:hidden">🔍</span>
             </button>
           </div>
         </div>
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-20">
+      <section className="bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-black text-gray-900 dark:text-white mb-12 leading-tight px-4" dir="rtl" style={{ 
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white mb-8 sm:mb-12 leading-tight px-2 sm:px-4" dir="rtl" style={{ 
               fontFamily: 'Vazirmatn, sans-serif',
               letterSpacing: '0.02em',
               wordSpacing: '0.1em'
@@ -152,30 +186,30 @@ export default function Home() {
             </h1>
             
             {/* Featured Program Card */}
-            <div className="max-w-3xl mx-auto bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/30 dark:border-gray-700/50 overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 text-white">
-                <div className="flex items-center justify-center gap-2 mb-4">
+            <div className="max-w-3xl mx-auto bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl border border-white/30 dark:border-gray-700/50 overflow-hidden">
+              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-4 sm:p-8 text-white">
+                <div className="flex items-center justify-center gap-2 mb-2 sm:mb-4">
                   <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                  <span className="text-sm font-semibold uppercase tracking-wide">برنامه ۱۰۴۲</span>
+                  <span className="text-xs sm:text-sm font-semibold uppercase tracking-wide">برنامه ۱۰۴۲</span>
                 </div>
-                <h2 className="text-3xl font-bold mb-2" dir="rtl">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2" dir="rtl">
                   جدیدترین برنامه گنج حضور
                 </h2>
-                <p className="text-blue-100 mb-6">
+                <p className="text-blue-100 mb-4 sm:mb-6 text-sm sm:text-base">
                   برنامه ویژه پیام‌های تلفنی شنوندگان
                 </p>
               </div>
-              <div className="p-8">
-                <p className="text-gray-500 dark:text-gray-400 text-sm mb-8">
+              <div className="p-4 sm:p-8">
+                <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm mb-4 sm:mb-8">
                   تاریخ اجرا: ۱۶ نوامبر ۲۰۲۵ - ۲۳ آبان ۱۴۰۴
                 </p>
                 <a
                   href="https://www.parvizshahbazi.com/ganj_videos/musicvideo.php?vid=fb4452476"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 sm:px-8 py-2 sm:py-4 rounded-xl sm:rounded-2xl font-bold text-sm sm:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto justify-center"
                 >
-                  <ChevronRight className="w-5 h-5" />
+                  <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span>نمایش برنامه</span>
                 </a>
               </div>
@@ -185,9 +219,9 @@ export default function Home() {
       </section>
 
       {/* Main Content */}
-      <section className="py-12">
+      <section className="py-6 sm:py-8 md:py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8" dir="rtl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 md:gap-8" dir="rtl">
             
             {/* Left Sidebar */}
             <aside className="lg:col-span-3 space-y-6">
@@ -256,34 +290,34 @@ export default function Home() {
             {/* Main Content */}
             <div className="lg:col-span-6">
               <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-3xl shadow-xl border border-white/30 dark:border-gray-700/50 overflow-hidden">
-                <div className="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-700 dark:to-gray-600 p-8 border-b border-gray-200 dark:border-gray-600">
-                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+                <div className="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-700 dark:to-gray-600 p-4 sm:p-6 md:p-8 border-b border-gray-200 dark:border-gray-600">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-4 text-center">
                     برنامه‌های صوتی و تصویری گنج حضور به ترتیب شماره
                   </h2>
-                  <p className="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
                     کلیک بر روی شماره دلخواه شما برای شنیدن، دانلود، مطالعه متن شنیدن، نظر دادن و امکانات دیگر
                   </p>
                 </div>
                 
-                <div className="p-8">
+                <div className="p-4 sm:p-6 md:p-8">
                   {/* Video & Audio Ranges Side by Side */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8" dir="rtl">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8" dir="rtl">
                     {/* Video column */}
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 text-center">
                         برنامه‌های تصویری گنج حضور به ترتیب شماره
                       </h3>
-                      <div className="space-y-3">
+                      <div className="space-y-2 sm:space-y-3">
                         {videoRanges.map((range) => (
                           <a
                             key={range.label}
                             href={getVideoCategoryUrl(range.label)}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group relative flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white py-4 px-6 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                            className="group relative flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl font-bold text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                           >
                             <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                            <ChevronRight className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
                             <span className="relative">{range.label}</span>
                           </a>
                         ))}
@@ -292,20 +326,20 @@ export default function Home() {
 
                     {/* Audio column */}
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 text-center">
                         برنامه‌های صوتی گنج حضور به ترتیب شماره
                       </h3>
-                      <div className="space-y-3">
+                      <div className="space-y-2 sm:space-y-3">
                         {videoRanges.map((range, index) => (
                           <a
                             key={`audio-${range.label}`}
                             href={getAudioCategoryUrl(range.label)}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group relative flex items-center justify-center gap-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-4 px-6 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                            className="group relative flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl font-bold text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                           >
                             <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                            <ChevronRight className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
                             <span className="relative">{range.label}</span>
                           </a>
                         ))}
@@ -314,21 +348,21 @@ export default function Home() {
                   </div>
 
                   {/* Special Collections */}
-                  <div className="mt-10">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-center">
+                  <div className="mt-6 sm:mt-8 md:mt-10">
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 sm:mb-4 text-center">
                       مجموعه‌های ویژه
                     </h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4" dir="rtl">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4" dir="rtl">
                       {audioCategories.map((category, index) => (
                         <a
                           key={category}
                           href={getSpecialCollectionUrl(category)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white py-3 px-4 rounded-2xl font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300"
+                          className="group flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white py-2 sm:py-3 px-3 sm:px-4 rounded-xl sm:rounded-2xl font-medium text-sm sm:text-base shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300"
                         >
-                          <ChevronRight className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                          <span>{category}</span>
+                          <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:scale-110 transition-transform" />
+                          <span className="text-center">{category}</span>
                         </a>
                       ))}
                     </div>
@@ -438,9 +472,9 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border-t border-white/20 dark:border-gray-700/50 py-12">
+      <footer className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border-t border-white/20 dark:border-gray-700/50 py-8 sm:py-10 md:py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-right" dir="rtl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-center md:text-right" dir="rtl">
             {/* Frequencies - right */}
             <div>
               <h3 className="font-bold text-gray-900 dark:text-white mb-4">پخش فرکانس شبکه‌های گنج حضور</h3>
