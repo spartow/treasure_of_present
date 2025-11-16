@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* Force mobile navigation to hide desktop nav on small screens */
+@media (max-width: 767px) {
+  nav .desktop-nav {
+    display: none !important;
+  }
+  
+  nav .mobile-menu-btn {
+    display: flex !important;
+  }
+}
+
 /* Persian Font - Vazirmatn (loaded via HTML link in layout.tsx) */
 
 :root {

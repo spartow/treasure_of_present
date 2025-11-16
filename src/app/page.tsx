@@ -83,25 +83,25 @@ export default function Home() {
       <nav className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl border-b border-white/20 dark:border-gray-700/50 shadow-lg">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-4 xl:gap-8" dir="rtl">
-              <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm whitespace-nowrap">خانه</Link>
-              <a href={URL_MAPPING.support} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">حمایت</a>
-              <a href={URL_MAPPING.links} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">لینک‌ها</a>
-              <a href={URL_MAPPING.contact} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">تماس</a>
-              <a href={URL_MAPPING.payamManavi} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">پیام‌های معنوی</a>
-              <a href={URL_MAPPING.peighamEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">پیغام عشق</a>
-              <a href={URL_MAPPING.koodakanEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">کودکان عشق</a>
-              <a href={URL_MAPPING.javaananEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">جوانان عشق</a>
-              <a href={URL_MAPPING.cheraghEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">چراغ عشق</a>
-              <a href={URL_MAPPING.summaries} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">خلاصه</a>
-              <a href={URL_MAPPING.ganjinehEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">گنجینه عشق</a>
+            {/* Desktop Navigation - Hidden on mobile, show on md and up */}
+            <div className="desktop-nav hidden md:flex items-center gap-4 xl:gap-8 overflow-x-auto" dir="rtl">
+              <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm whitespace-nowrap flex-shrink-0">خانه</Link>
+              <a href={URL_MAPPING.support} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap flex-shrink-0">حمایت</a>
+              <a href={URL_MAPPING.links} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap flex-shrink-0">لینک‌ها</a>
+              <a href={URL_MAPPING.contact} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap flex-shrink-0">تماس</a>
+              <a href={URL_MAPPING.payamManavi} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap flex-shrink-0">پیام‌های معنوی</a>
+              <a href={URL_MAPPING.peighamEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap flex-shrink-0">پیغام عشق</a>
+              <a href={URL_MAPPING.koodakanEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap flex-shrink-0">کودکان عشق</a>
+              <a href={URL_MAPPING.javaananEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap flex-shrink-0">جوانان عشق</a>
+              <a href={URL_MAPPING.cheraghEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap flex-shrink-0">چراغ عشق</a>
+              <a href={URL_MAPPING.summaries} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap flex-shrink-0">خلاصه</a>
+              <a href={URL_MAPPING.ganjinehEshgh} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap flex-shrink-0">گنجینه عشق</a>
             </div>
             
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Show on mobile, hide on md and up */}
             <button
               onClick={() => setShowMobileMenu(!showMobileMenu)}
-              className="md:hidden p-2 text-gray-600 hover:text-blue-600"
+              className="mobile-menu-btn flex md:hidden p-2 text-gray-600 hover:text-blue-600 z-10"
               aria-label="Menu"
             >
               {showMobileMenu ? <XIcon className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
