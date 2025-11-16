@@ -74,9 +74,9 @@ export default function Home() {
       </div>
       
       {/* Floating Orbs - Hidden on mobile */}
-      <div className="hidden md:block absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-xl animate-pulse"></div>
-      <div className="hidden md:block absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-      <div className="hidden md:block absolute bottom-20 left-1/4 w-20 h-20 bg-gradient-to-br from-indigo-400/20 to-blue-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+      <div className="hidden lg:block absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-xl animate-pulse"></div>
+      <div className="hidden lg:block absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      <div className="hidden lg:block absolute bottom-20 left-1/4 w-20 h-20 bg-gradient-to-br from-indigo-400/20 to-blue-400/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       
       <div className="relative z-10">
       {/* Top Navigation */}
@@ -84,7 +84,7 @@ export default function Home() {
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-4 xl:gap-8" dir="rtl">
+            <div className="hidden md:flex items-center gap-4 xl:gap-8" dir="rtl">
               <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm whitespace-nowrap">خانه</Link>
               <a href={URL_MAPPING.support} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">حمایت</a>
               <a href={URL_MAPPING.links} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm whitespace-nowrap">لینک‌ها</a>
@@ -101,7 +101,7 @@ export default function Home() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setShowMobileMenu(!showMobileMenu)}
-              className="lg:hidden p-2 text-gray-600 hover:text-blue-600"
+              className="md:hidden p-2 text-gray-600 hover:text-blue-600"
               aria-label="Menu"
             >
               {showMobileMenu ? <XIcon className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -131,7 +131,7 @@ export default function Home() {
 
           {/* Mobile Menu */}
           {showMobileMenu && (
-            <div className="lg:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700 pt-4" dir="rtl">
+            <div className="md:hidden mt-4 pb-4 border-t border-gray-200 dark:border-gray-700 pt-4" dir="rtl">
               <div className="grid grid-cols-2 gap-2">
                 <Link href="/" className="text-blue-600 hover:text-blue-700 text-sm py-2 px-3 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-700">خانه</Link>
                 <a href={URL_MAPPING.support} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-600 text-sm py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">حمایت از گنج حضور</a>
@@ -152,20 +152,20 @@ export default function Home() {
 
       {/* Search Bar */}
       <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl border-b border-white/20 dark:border-gray-700/50">
-        <div className="container mx-auto px-4 py-3 sm:py-4">
-          <div className="flex items-center gap-2 sm:gap-3 max-w-4xl mx-auto">
-            <div className="p-2 sm:p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl shadow-lg flex-shrink-0">
-              <Search className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
+        <div className="container mx-auto px-3 sm:px-4 py-2 sm:py-3 md:py-4">
+          <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 max-w-4xl mx-auto">
+            <div className="p-1.5 sm:p-2 md:p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg sm:rounded-xl shadow-lg flex-shrink-0">
+              <Search className="w-3.5 h-3.5 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
             </div>
             <input
               type="text"
               placeholder="جستجو در برنامه‌ها..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 px-3 sm:px-6 py-2 sm:py-4 bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm border-2 border-gray-200/50 dark:border-gray-600/50 rounded-xl sm:rounded-2xl focus:outline-none focus:border-blue-500 focus:ring-2 sm:focus:ring-4 focus:ring-blue-500/20 text-gray-900 dark:text-white text-sm sm:text-lg font-medium transition-all duration-300"
+              className="flex-1 px-2 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-4 bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm border-2 border-gray-200/50 dark:border-gray-600/50 rounded-lg sm:rounded-xl md:rounded-2xl focus:outline-none focus:border-blue-500 focus:ring-1 sm:focus:ring-2 md:focus:ring-4 focus:ring-blue-500/20 text-gray-900 dark:text-white text-xs sm:text-sm md:text-lg font-medium transition-all duration-300"
               dir="rtl"
             />
-            <button className="px-4 sm:px-8 py-2 sm:py-4 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-xs sm:text-base whitespace-nowrap">
+            <button className="px-2 sm:px-4 md:px-8 py-1.5 sm:py-2 md:py-4 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold rounded-lg sm:rounded-xl md:rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-xs sm:text-sm md:text-base whitespace-nowrap flex-shrink-0">
               <span className="hidden sm:inline">Search</span>
               <span className="sm:hidden">🔍</span>
             </button>
