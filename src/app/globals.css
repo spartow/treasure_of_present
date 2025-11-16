@@ -1,63 +1,27 @@
 @import "tailwindcss";
 
-/* Force mobile navigation to hide desktop nav on small screens */
+/* ============================
+   NAVIGATION RESPONSIVENESS
+   ============================ */
+
+/* Hide desktop navigation on small screens */
 @media (max-width: 767px) {
-  /* Hide desktop navigation completely on mobile - use very specific selector */
-  nav .desktop-nav,
-  nav > div > div > .desktop-nav,
-  .desktop-nav,
-  nav > div > div > div:first-child {
+  .desktop-nav {
     display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    height: 0 !important;
-    width: 0 !important;
-    max-width: 0 !important;
-    overflow: hidden !important;
-    position: absolute !important;
-    left: -9999px !important;
-    pointer-events: none !important;
-  }
-  
-  /* Force mobile menu button to show */
-  nav .mobile-menu-btn,
-  nav > div > div > .mobile-menu-btn,
-  .mobile-menu-btn,
-  nav > div > div > button {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: relative !important;
-    z-index: 10 !important;
-  }
-  
-  /* Hide all navigation links inside desktop nav on mobile */
-  nav .desktop-nav a,
-  nav .desktop-nav Link,
-  nav a[href*="support"],
-  nav a[href*="links"],
-  nav a[href*="contact"] {
-    display: none !important;
-    visibility: hidden !important;
-  }
-  
-  /* Ensure container doesn't show desktop nav */
-  nav > div > div {
-    flex-wrap: nowrap !important;
-    justify-content: space-between !important;
-  }
-  
-  /* Make navigation bar more compact on mobile */
-  nav {
-    padding: 0.5rem 0.5rem !important;
-  }
-  
-  nav > div {
-    padding: 0.25rem 0.5rem !important;
   }
 }
 
-/* Persian Font - Vazirmatn (loaded via HTML link in layout.tsx) */
+/* Hide mobile navigation controls on medium and up */
+@media (min-width: 768px) {
+  .mobile-menu-btn,
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+/* ========================================
+   Persian Font - Vazirmatn
+   ======================================== */
 
 :root {
   --background: #ffffff;
@@ -81,7 +45,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Enhance Persian text rendering */
+/* Global font for all elements */
 * {
   font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -242,8 +206,9 @@ body {
 .glow-border {
   position: relative;
   border: 2px solid transparent;
-  background: linear-gradient(white, white) padding-box,
-              linear-gradient(135deg, #667eea, #764ba2) border-box;
+  background:
+    linear-gradient(white, white) padding-box,
+    linear-gradient(135deg, #667eea, #764ba2) border-box;
 }
 
 /* Smooth Transitions */
@@ -298,8 +263,12 @@ html {
 
 /* Blob Animation */
 @keyframes blob {
-  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
 }
 
 .blob {
